@@ -1,0 +1,878 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>رسالة لك 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:"Cairo",sans-serif;
+
+    background:
+        radial-gradient(circle at 15% 15%,#ffd9e8,transparent 30%),
+        radial-gradient(circle at 85% 85%,#ffc9dc,transparent 30%),
+        linear-gradient(135deg,#fff7fa,#ffe1eb);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* =========================
+   الصفحة
+========================= */
+
+.page{
+    width:min(92vw,460px);
+    text-align:center;
+}
+
+.title{
+    color:#d94d7c;
+    font-size:24px;
+    font-weight:700;
+}
+
+.subtitle{
+    color:#a5687b;
+    font-size:13px;
+    margin-top:3px;
+    margin-bottom:18px;
+}
+
+/* =========================
+   الدببة
+========================= */
+
+.bears{
+    height:120px;
+    position:relative;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+
+    padding:0 25px;
+
+    z-index:5;
+}
+
+.bear{
+    width:82px;
+    height:110px;
+    position:relative;
+
+    animation:bob 3s ease-in-out infinite;
+}
+
+.bear:nth-child(2){
+    animation-delay:.5s;
+}
+
+@keyframes bob{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+.ear{
+    position:absolute;
+
+    width:30px;
+    height:30px;
+
+    top:2px;
+
+    background:#b87962;
+    border-radius:50%;
+}
+
+.ear:after{
+    content:"";
+
+    position:absolute;
+
+    width:15px;
+    height:15px;
+
+    left:7px;
+    top:7px;
+
+    background:#e3a08c;
+    border-radius:50%;
+}
+
+.ear.left{
+    left:2px;
+}
+
+.ear.right{
+    right:2px;
+}
+
+.head{
+    position:absolute;
+
+    width:65px;
+    height:61px;
+
+    left:9px;
+    top:12px;
+
+    background:#c28770;
+    border-radius:48%;
+}
+
+.eye{
+    position:absolute;
+
+    width:6px;
+    height:8px;
+
+    top:25px;
+
+    background:#432721;
+    border-radius:50%;
+}
+
+.eye.left{
+    left:18px;
+}
+
+.eye.right{
+    right:18px;
+}
+
+.muzzle{
+    position:absolute;
+
+    width:28px;
+    height:19px;
+
+    left:18px;
+    bottom:7px;
+
+    background:#e5a38e;
+    border-radius:50%;
+}
+
+.nose{
+    position:absolute;
+
+    width:8px;
+    height:6px;
+
+    left:10px;
+    top:4px;
+
+    background:#492821;
+    border-radius:50%;
+}
+
+.body{
+    position:absolute;
+
+    width:55px;
+    height:48px;
+
+    left:14px;
+    top:66px;
+
+    background:#c28770;
+    border-radius:45%;
+}
+
+.arm{
+    position:absolute;
+
+    width:29px;
+    height:19px;
+
+    top:70px;
+
+    background:#c28770;
+    border-radius:50%;
+
+    z-index:5;
+}
+
+.arm.left{
+    left:0;
+    transform:rotate(25deg);
+}
+
+.arm.right{
+    right:0;
+    transform:rotate(-25deg);
+}
+
+.heart{
+    position:absolute;
+
+    left:50%;
+    top:22px;
+
+    transform:translateX(-50%);
+
+    font-size:50px;
+
+    z-index:10;
+
+    animation:heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:translateX(-50%) scale(1);
+    }
+
+    15%{
+        transform:translateX(-50%) scale(1.15);
+    }
+
+    30%{
+        transform:translateX(-50%) scale(1);
+    }
+}
+
+/* =========================
+   منطقة الظرف
+========================= */
+
+.envelope-space{
+    position:relative;
+
+    width:100%;
+    height:330px;
+
+    margin-top:-5px;
+}
+
+/* =========================
+   الظرف
+========================= */
+
+.envelope{
+    position:absolute;
+
+    width:min(88vw,390px);
+    height:220px;
+
+    left:50%;
+    bottom:5px;
+
+    transform:translateX(-50%);
+
+    cursor:pointer;
+
+    z-index:10;
+}
+
+/* جسم الظرف */
+
+.envelope-body{
+    position:absolute;
+
+    inset:0;
+
+    background:#f98bad;
+
+    border-radius:16px;
+
+    box-shadow:
+        0 18px 35px rgba(190,65,105,.22);
+
+    z-index:1;
+}
+
+/* مثلث المقدمة */
+
+.envelope-front{
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:145px;
+
+    background:#f477a0;
+
+    clip-path:polygon(
+        0 100%,
+        50% 20%,
+        100% 100%
+    );
+
+    border-radius:0 0 16px 16px;
+
+    z-index:4;
+}
+
+/* غطاء الظرف */
+
+.flap{
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:130px;
+
+    background:#ffabc4;
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    transform-origin:top center;
+
+    transition:
+        transform .9s cubic-bezier(.2,.9,.25,1);
+
+    z-index:6;
+}
+
+/* الختم */
+
+.seal{
+    position:absolute;
+
+    left:50%;
+    top:82px;
+
+    width:47px;
+    height:47px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:#e64d7d;
+
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:21px;
+
+    z-index:8;
+
+    transition:.4s;
+}
+
+/* =========================
+   الورقة
+========================= */
+
+.paper{
+    position:absolute;
+
+    width:88%;
+    height:205px;
+
+    left:6%;
+    bottom:8px;
+
+    background:#fff;
+
+    border-radius:13px;
+
+    /*
+       مغلقة:
+       الورقة تحت جسم الظرف
+    */
+
+    z-index:2;
+
+    overflow:hidden;
+
+    transform:translateY(0);
+
+    transition:
+        transform 1s cubic-bezier(.2,.9,.25,1),
+        box-shadow .5s;
+}
+
+/* محتوى الورقة */
+
+.paper-inner{
+    width:100%;
+    height:100%;
+
+    padding:20px 19px;
+
+    overflow-y:auto;
+
+    scrollbar-width:none;
+
+    opacity:0;
+
+    transition:
+        opacity .5s ease .65s;
+}
+
+.paper-inner::-webkit-scrollbar{
+    display:none;
+}
+
+.paper h2{
+    color:#d74d7c;
+
+    font-size:19px;
+
+    margin-bottom:9px;
+}
+
+.paper p{
+    color:#704b58;
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+.paper strong{
+    color:#d74d7c;
+}
+
+.signature{
+    color:#c65b7c;
+
+    font-size:12px;
+
+    margin-top:9px;
+}
+
+/* =========================
+   الفتح
+========================= */
+
+/*
+   هنا النقطة المهمة:
+
+   عند الفتح:
+   - الورقة تصبح فوق الظرف بالكامل
+   - الغطاء يفتح
+   - النص يظهر
+*/
+
+.envelope.open .paper{
+
+    z-index:20;
+
+    transform:translateY(-135px);
+
+    box-shadow:
+        0 18px 35px rgba(80,30,50,.18);
+}
+
+.envelope.open .paper-inner{
+    opacity:1;
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+
+    z-index:3;
+}
+
+.envelope.open .seal{
+    opacity:0;
+
+    transform:
+        translateX(-50%)
+        scale(.5);
+}
+
+/* =========================
+   التعليمات
+========================= */
+
+.hint{
+    margin-top:12px;
+
+    color:#a46177;
+
+    font-size:13px;
+
+    transition:.4s;
+}
+
+.envelope.open ~ .hint{
+    opacity:0;
+}
+
+/* =========================
+   القلوب
+========================= */
+
+.fly-heart{
+    position:fixed;
+
+    left:50%;
+    top:55%;
+
+    z-index:100;
+
+    pointer-events:none;
+
+    font-size:23px;
+
+    animation:fly 1.5s ease-out forwards;
+}
+
+@keyframes fly{
+
+    0%{
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale:.3;
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            rotate(var(--r))
+            scale(1.3);
+    }
+}
+
+/* =========================
+   الجوال
+========================= */
+
+@media(max-width:500px){
+
+    .title{
+        font-size:21px;
+    }
+
+    .subtitle{
+        font-size:12px;
+    }
+
+    .bears{
+        height:105px;
+        padding:0 15px;
+    }
+
+    .bear{
+        transform:scale(.82);
+    }
+
+    .heart{
+        font-size:43px;
+    }
+
+    .envelope-space{
+        height:300px;
+    }
+
+    .envelope{
+        height:205px;
+    }
+
+    .paper{
+        height:190px;
+    }
+
+    .paper-inner{
+        padding:16px;
+    }
+
+    .paper h2{
+        font-size:17px;
+    }
+
+    .paper p{
+        font-size:12px;
+        line-height:1.85;
+    }
+
+    .envelope.open .paper{
+        transform:translateY(-120px);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="title">
+     رسالة صغيرة 💗
+    </div>
+
+    <div class="subtitle">
+        اضغط على الظرف لتكتشف ما بداخله
+    </div>
+
+
+    <!-- الدببة -->
+
+    <div class="bears">
+
+        <div class="bear">
+
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+
+            <div class="head">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+
+                <div class="muzzle">
+                    <div class="nose"></div>
+                </div>
+            </div>
+
+            <div class="body"></div>
+
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+
+        </div>
+
+
+        <div class="heart">
+            💗
+        </div>
+
+
+        <div class="bear">
+
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+
+            <div class="head">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+
+                <div class="muzzle">
+                    <div class="nose"></div>
+                </div>
+            </div>
+
+            <div class="body"></div>
+
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- الظرف -->
+
+    <div class="envelope-space">
+
+        <div class="envelope" id="envelope">
+
+
+            <!-- الورقة -->
+
+            <div class="paper">
+
+                <div class="paper-inner">
+
+                    <h2>
+                        💕
+                    </h2>
+
+                    <p>
+                        سمعتُ صوتك والهتاف ينقله 
+
+إلى سرائر روحي قبل آذاني
+
+صوتٌ كلحن المنى في مهجت طمعت
+
+في أن يعود إليها روحها العاني
+                        <br><br>
+
+                         أأنت تسأل عمن أنت تحسبني
+
+نسيت صوتاً جفاني منذ أزمان
+
+لو كنت في عالم الأموات ثم شدا
+
+بغامك العذبُ في روحي لأحياني 
+
+                        <br><br>
+وعدت في الأحد الآتي بسانحة
+
+من نور عطفك تذكى نار أشجاني
+
+ما ذلك الأحد الآتي وما غده
+
+سوفت سوفت في ميعاد لقياني
+
+                     
+                        
+                        
+                        <br><br>
+
+                        <strong>
+                            أتمنى أن تبقى أيامك جميلة،
+                            وأن تكون سعيدًا دائمًا. 💗
+                        </strong>
+                    </p>
+
+                    <div class="signature">
+                        من شخص يتمنى لك السعادة دائمًا 🌷
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- جسم الظرف -->
+
+            <div class="envelope-body"></div>
+
+
+            <!-- مقدمة الظرف -->
+
+            <div class="envelope-front"></div>
+
+
+            <!-- الغطاء -->
+
+            <div class="flap"></div>
+
+
+            <!-- الختم -->
+
+            <div class="seal">
+                ♥
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hint">
+        اضغط على الظرف 💌
+    </div>
+
+</div>
+
+
+<script>
+
+const envelope =
+    document.getElementById("envelope");
+
+let opened = false;
+
+envelope.addEventListener("click", function(){
+
+    opened = !opened;
+
+    envelope.classList.toggle(
+        "open",
+        opened
+    );
+
+    if(opened){
+
+        createHearts();
+
+    }
+
+});
+
+
+function createHearts(){
+
+    const emojis = [
+        "💗",
+        "💕",
+        "💖",
+        "💞",
+        "♥",
+        "♡"
+    ];
+
+    for(let i = 0; i < 25; i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "fly-heart";
+
+        heart.textContent =
+            emojis[
+                Math.floor(
+                    Math.random() *
+                    emojis.length
+                )
+            ];
+
+        heart.style.setProperty(
+            "--x",
+            ((Math.random() - .5) * 500) + "px"
+        );
+
+        heart.style.setProperty(
+            "--y",
+            ((Math.random() - .5) * 400) + "px"
+        );
+
+        heart.style.setProperty(
+            "--r",
+            ((Math.random() * 360) - 180) + "deg"
+        );
+
+        heart.style.animationDelay =
+            (Math.random() * .25) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function(){
+            heart.remove();
+        },1800);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
